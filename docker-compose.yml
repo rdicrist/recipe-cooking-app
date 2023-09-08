@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  recipe_app_data:
+    name: recipe_app_data
+
+services:
+  db:
+    container_name: postgres
+    image: postgres:11
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - recipe_app_data:/var/lib/postgresql/data
